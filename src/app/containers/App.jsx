@@ -17,6 +17,8 @@ import LoginPage from 'pageProviders/Login';
 import PageContainer from 'pageProviders/components/PageContainer';
 import pageURLs from 'constants/pagesURLs';
 import SecretPage from 'pageProviders/Secret';
+import SongsPage from 'pageProviders/SongsList'
+import SongPage from 'pageProviders/SongDetails';
 import ThemeProvider from 'misc/providers/ThemeProvider';
 import UserProvider from 'misc/providers/UserProvider';
 
@@ -71,6 +73,14 @@ function App() {
                 )}
                 {!isFetchingUser && (
                   <Routes>
+                      <Route
+                          element={<SongsPage />}
+                          path={`${pageURLs[pages.songsPage]}`}
+                      />
+                      <Route
+                          element={<SongPage />}
+                          path={`${pageURLs[pages.songDetails]}`}
+                      />
                     <Route
                       element={<DefaultPage />}
                       path={`${pageURLs[pages.defaultPage]}`}
